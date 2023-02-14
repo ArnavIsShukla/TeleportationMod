@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#i#",
+    " i "
+  ],
+  "key": {
+    "#": {
+      "item": "tutorialmod:magical_crystal"
+    },
+    "i": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "tutorialmod:magical_staff"
+  }
+}

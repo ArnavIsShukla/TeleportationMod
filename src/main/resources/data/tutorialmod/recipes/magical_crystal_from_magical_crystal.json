@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "tutorialmod:magical_shard"
+    }
+  },
+  "result": {
+    "item": "tutorialmod:magical_crystal"
+  }
+}

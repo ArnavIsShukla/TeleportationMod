@@ -1,0 +1,10 @@
+{
+  "type": "tutorialmod:add_item",
+  "conditions": [
+    {
+      "condition": "block_state_property",
+      "block": "minecraft:amethyst_cluster"
+    }
+  ],
+  "item": "tutorialmod:magical_shard"
+}
