@@ -1,5 +1,5 @@
 {
-  "type": "tutorialmod:add_item",
+  "type": "tutorialmod:add_item_10",
   "conditions": [
     {
       "condition": "block_state_property",

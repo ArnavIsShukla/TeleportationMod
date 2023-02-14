@@ -4,8 +4,13 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.kaupenjoe.tutorialmod.item.ModItems;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -32,6 +37,7 @@ public class AdvancedMagicalStaff extends Item {
     public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if(Screen.hasShiftDown()){
+            //teleportation
             BlockHitResult ray = rayTrace(world, player, ClipContext.Fluid.NONE);
             player.getCooldowns().addCooldown(this, 60);
             BlockPos lookPos = ray.getBlockPos().relative(ray.getDirection());
@@ -41,7 +47,10 @@ public class AdvancedMagicalStaff extends Item {
             if (stack.getDamageValue() >= stack.getMaxDamage()){
                 stack.setCount(0);
             }
-
+            //effects
+            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 200, 2));
+            //sounds
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.5F);
         }
         return super.use(world, player, hand);
     }
